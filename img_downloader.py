@@ -2,6 +2,11 @@
 import wget
 import os
 
+# Quran images sources
+# [1] kfgqpc-quran-hafs-wasat-hq: 'https://epub.qurancomplex.gov.sa/issues/hafs/wasat39/files/pages/svg/{}.jpg'  (4:607)
+# [2] kfgqpc-quran-hafs-wasat: 'https://epub.qurancomplex.gov.sa/issues/hafs/wasat39/files/pages/tablet/{}.jpg'  (4:607)
+# [3] wasat-otlooha: 'https://quran.gplanet.tech/hafs/images/{}.png   (1:604)
+
 # Download info
 URL = 'https://epub.qurancomplex.gov.sa/issues/hafs/wasat39/files/pages/svg/{}.jpg'
 START_COUNT = 4
