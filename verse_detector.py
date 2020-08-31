@@ -4,15 +4,15 @@ import cv2
 import numpy as np
 
 THRESHOLD = 0.75
-  
+
 # Read the main image (source)
-img_rgb = cv2.imread('./source_img/0006.jpg')
+img_rgb = cv2.imread('./source/0006.jpg')
   
 # Convert it to grayscale 
 img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY) 
   
 # Read the template 
-template = cv2.imread('./template_img/verse_template.jpg',0) 
+template = cv2.imread('./template/verse_template.jpg',0) 
   
 # Store width and height of template in w and h 
 w, h = template.shape[::-1] 
