@@ -18,6 +18,6 @@ if not os.path.exists(DOWNLOAD_DIR):
 
 print('Beginning file download with wget module')
 
-for i in range(START_COUNT, END_COUNT):
+for i in range(START_COUNT, END_COUNT+1):
     print('\nDownload {} started...'.format(i))
     wget.download(URL.format(i), DOWNLOAD_DIR + '{}.jpg'.format(i - START_COUNT + 1))
