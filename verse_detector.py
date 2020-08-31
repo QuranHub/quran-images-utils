@@ -3,7 +3,7 @@
 import cv2 
 import numpy as np
 
-THRESHOLD = 0.7
+THRESHOLD = 0.75
   
 # Read the main image (source)
 img_rgb = cv2.imread('./source_img/0006.jpg')
@@ -22,12 +22,13 @@ res = cv2.matchTemplate(img_gray,template,cv2.TM_CCOEFF_NORMED)
   
 # Store the coordinates of matched area in a numpy array 
 loc = np.where( res >= THRESHOLD)  
-print(loc)
 
-# Draw a rectangle around the matched region. 
-for pt in zip(*loc[::-1]): 
+# Draw a rectangle around the matched region.
+points = zip(*loc[::-1])
+for pt in points: 
+    print(pt)
     cv2.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0, 17, 255), 2) 
   
 # Show the final image with the matched area. 
-cv2.imshow('Detected',img_rgb) 
+cv2.imshow('Detected verses',img_rgb) 
 cv2.waitKey()
