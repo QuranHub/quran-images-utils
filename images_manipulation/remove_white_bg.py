@@ -1,4 +1,4 @@
-# Python program to remove the white background from the images in a given
+# Python program to remove the white background from the images in a specified
 # directory & make them transparent PNGs.
 # Based on the following ST answer: https://stackoverflow.com/a/765774/8555796
 from PIL import Image
