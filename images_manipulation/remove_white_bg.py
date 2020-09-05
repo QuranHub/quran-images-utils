@@ -7,7 +7,7 @@ from os.path import exists, isfile, join, splitext
 
 # Images source & output directories
 SRC_DIR = '/home/abdallah/Projects/quran-images/kfgqpc-quran-hafs-wasat/'
-OUT_DIR = '/home/abdallah/Projects/quran-images/kfgqpc-quran-hafs-wasat-mod/'
+OUT_DIR = '/home/abdallah/Projects/quran-images/hafs-wasat/'
 
 if not exists(OUT_DIR):
     makedirs(OUT_DIR)
@@ -21,7 +21,8 @@ for f in files:
 
     newData = []
     for item in datas:
-        if item[0] == 255 and item[1] == 255 and item[2] == 255:
+        if item[0] > 230 and item[1] > 230 and item[2] > 230:
+            # convert white (& light grey) pixels to transparent ones
             newData.append((255, 255, 255, 0))
         else:
             newData.append(item)
