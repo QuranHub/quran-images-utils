@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Python program to crop the images with a specified box boundary
 from PIL import Image
 from os import makedirs, listdir
