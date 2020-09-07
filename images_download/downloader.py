@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # Python program to download images where the images files names are number increments
+# Author : Abdallah Abdelazim
 import wget
 from os import makedirs
 from os.path import exists, join

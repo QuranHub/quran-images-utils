@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # Python program to crop the images with a specified box boundary
+# Author : Abdallah Abdelazim
 from PIL import Image
 from os import makedirs, listdir
 from os.path import exists, isfile, join, splitext

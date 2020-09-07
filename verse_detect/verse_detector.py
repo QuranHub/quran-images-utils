@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # Python program to locate verses in Quran images
 # using a verse template (template matching)
+# Author : Abdallah Abdelazim
 import cv2 
 import numpy as np
 

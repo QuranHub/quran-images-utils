@@ -2,6 +2,7 @@
 # Python program to remove the white background from the images in a specified
 # directory & make them transparent PNGs.
 # Based on the following ST answer: https://stackoverflow.com/a/765774/8555796
+# Author : Abdallah Abdelazim
 from PIL import Image
 from os import makedirs, listdir
 from os.path import exists, isfile, join, splitext
