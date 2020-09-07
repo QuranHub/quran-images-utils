@@ -21,7 +21,8 @@ if not exists(OUT_DIR):
 files = [f for f in listdir(SRC_DIR) if isfile(join(SRC_DIR, f))]
 
 for f in files:
-    img = Image.open(join(SRC_DIR, f))
+    fpath = join(SRC_DIR, f)
+    img = Image.open(fpath)
 
     imageNum = int(splitext(f)[0])
     if imageNum == 1 or imageNum == 2:
@@ -31,5 +32,6 @@ for f in files:
     else:
         croppedImg = img.crop(CROP_BOXES['page_odd'])
     
-    croppedImg.save(join(OUT_DIR, f))
+    outpath = join(OUT_DIR, f)
+    croppedImg.save(outpath)
     print('Saved {}'.format(f))
