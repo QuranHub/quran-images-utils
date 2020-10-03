@@ -8,8 +8,8 @@ from os import makedirs, listdir
 from os.path import exists, isfile, join, splitext
 
 # Images source & output directories
-SRC_DIR = '/home/abdallah/Projects/quran-images/kfgqpc-quran-hafs-wasat/'
-OUT_DIR = '/home/abdallah/Projects/quran-images/hafs-wasat/'
+SRC_DIR = '/home/abdallah/Desktop/test_remove_bg/'
+OUT_DIR = '/home/abdallah/Desktop/test_remove_bg_out/'
 
 if not exists(OUT_DIR):
     makedirs(OUT_DIR)
@@ -22,10 +22,14 @@ for f in files:
     datas = img.getdata()
 
     newData = []
+    threshold = 15
     for item in datas:
-        if item[0] > 230 and item[1] > 230 and item[2] > 230:
+        if item[0] > 175 and item[1] > 175 and item[2] > 175 and \
+                abs(item[0] - item[1]) < threshold and \
+                abs(item[1] - item[2]) < threshold and \
+                abs(item[0] - item[2]) < threshold:
             # convert white (& light grey) pixels to transparent ones
-            newData.append((255, 255, 255, 0))
+            newData.append((0, 0, 0, 0))
         else:
             newData.append(item)
 
