@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 # Python program to resize the Quran images.
 # Author : Abdallah Abdelazim
-from PIL import Image
 from os import makedirs, listdir
 from os.path import exists, isfile, join, splitext
+
+from PIL import Image
 
 # Images source & output directories
 SRC_DIR = '/home/abdallah/Desktop/resize_test/'

@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 # Python program to download images where the images files names are number increments
 # Author : Abdallah Abdelazim
-import wget
 from os import makedirs
 from os.path import exists, join
+
+import wget
 
 # Quran images sources
 # [1] kfgqpc-quran-hafs-wasat: 'https://epub.qurancomplex.gov.sa/issues/hafs/wasat39/files/pages/svg/{}.jpg'  (4:607)
@@ -22,6 +23,6 @@ if not exists(DOWNLOAD_DIR):
 
 print('Beginning file download')
 
-for i in range(START_COUNT, END_COUNT+1):
+for i in range(START_COUNT, END_COUNT + 1):
     print('\nDownload {} started...'.format(i))
     wget.download(URL.format(i), join(DOWNLOAD_DIR + '{}.jpg'.format(i - START_COUNT + 1)))

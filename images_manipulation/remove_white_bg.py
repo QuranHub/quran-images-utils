@@ -3,9 +3,10 @@
 # directory & make them transparent PNGs.
 # Based on the following ST answer: https://stackoverflow.com/a/765774/8555796
 # Author : Abdallah Abdelazim
-from PIL import Image
 from os import makedirs, listdir
 from os.path import exists, isfile, join, splitext
+
+from PIL import Image
 
 # Images source & output directories
 SRC_DIR = '/home/abdallah/Desktop/test_remove_bg/'
