@@ -1,15 +1,15 @@
 #!/usr/bin/env python3 
-# Purpose: Prepare the Quran images
+# Purpose: Prepare the Quran images.
 # Author: Abdallah Abdelazim
 # Features:
 # - Crop the images to remove the borders.
 # - Resize & optimize the images to decrease the image size.
-# - The input images are expected to be in the images folder
-# - Save the output images in the output folder
+# - The input images are expected to be in the images folder.
+# - Save the output images in the output folder.
 # - The input & output images are named as 001.jpg, 002.jpg, etc.
 # Pre-requisites:
-# - Python 3.6 or higher
-# - Pillow package
+# - Python 3.6 or higher.
+# - Pillow package (pip install pillow).
 
 import os
 from PIL import Image
@@ -17,9 +17,9 @@ from pathlib import Path
 import subprocess
 
 # Define the input and output folder paths
-script_dir = os.path.dirname(__file__)
-input_folder = os.path.join(script_dir, "images")
-output_folder = os.path.join(script_dir, "output")
+script_folder = os.path.dirname(__file__)
+input_folder = os.path.join(script_folder, "images")
+output_folder = os.path.join(script_folder, "output")
 
 # Define the crop offsets (pixels) for pages
 # (left, right, top, bottom)
