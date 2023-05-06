@@ -1,13 +1,16 @@
 import os
 from PIL import Image
+from pathlib import Path
 
 # Define the input and output folder paths
-input_folder = "hafs-wasat-kfgqpc-original"
-output_folder = "hafs-wasat-kfgqpc-prepared"
+script_dir = os.path.dirname(__file__)
+input_folder = os.path.join(script_dir, "images")
+output_folder = os.path.join(script_dir, "output")
 
-# Define the offsets for even and odd pages
-even_offsets = (129, 197, 141, 143)
-odd_offsets = (129, 197, 141, 143)
+# Define the offsets for even and odd pages: (left, right, top, bottom)
+first_two_pages_offsets = (126, 126, 208, 208)
+even_offsets = (195, 129, 143, 143)
+odd_offsets = (128, 196, 143, 143)
 
 # Create the output folder if it doesn't exist
 if not os.path.exists(output_folder):
@@ -26,7 +29,9 @@ for i in range(1, 605):
     width, height = image.size
 
     # Determine the offsets to use based on whether the page is even or odd
-    if i % 2 == 0:
+    if i == 1 or i == 2:
+        left_offset, right_offset, top_offset, bottom_offset = first_two_pages_offsets
+    elif i % 2 == 0:
         left_offset, right_offset, top_offset, bottom_offset = even_offsets
     else:
         left_offset, right_offset, top_offset, bottom_offset = odd_offsets
