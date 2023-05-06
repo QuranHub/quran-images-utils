@@ -10,7 +10,7 @@
 # Pre-requisites:
 # - Python 3.6 or higher.
 # - Pillow package (pip install pillow).
-
+#
 import os
 from PIL import Image
 from pathlib import Path

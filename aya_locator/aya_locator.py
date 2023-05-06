@@ -7,12 +7,12 @@
 # - The 'template.jpg' image is expected to be in the same folder as this script.
 # - The input & output images are named as 001.jpg, 002.jpg, etc.
 # - The output is the coordinates of the Aya in each image.
-# - The output is saved to 'output_data.csv'.
+# - The output is saved to 'data.csv'.
 # Pre-requisites:
 # - Python 3.6 or higher.
 # - OpenCV package (pip install opencv-python).
 # - Numpy package (pip install numpy).
-
+#
 import os
 import cv2
 import numpy as np
@@ -101,7 +101,7 @@ else:
     print("All ayas are matched successfully")
 
 # Save the output data to a CSV file
-with open(os.path.join(script_folder, "output_data.csv"), "w", newline="") as f:
+with open(os.path.join(script_folder, "data.csv"), "w", newline="") as f:
     writer = csv.writer(f)
 
     # Write header row
