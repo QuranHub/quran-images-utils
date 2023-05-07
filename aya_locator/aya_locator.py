@@ -18,6 +18,38 @@ import cv2
 import numpy as np
 import csv
 
+def group_and_sort(points, group_y_threshold):
+    """
+    Groups the given points by y-coordinates with a maximum difference of `group_y_threshold` between each group.
+    Within each group, sorts the points by x-coordinate in acending order.
+    Returns a list of all points sorted.
+    """
+    groups = []
+    current_group = []
+
+    # Sort points by y-coordinate
+    points_sorted = sorted(points, key=lambda p: p[1])
+
+    # Group points by y-coordinate with a maximum difference of group_y_threshold
+    for point in points_sorted:
+        if not current_group or abs(point[1] - current_group[0][1]) <= group_y_threshold:
+            current_group.append(point)
+        else:
+            groups.append(current_group)
+            current_group = [point]
+    groups.append(current_group)
+
+    # Sort each group by x-coordinate in ascending order
+    for group in groups:
+        group.sort(key=lambda p: -p[0])
+
+    # Flatten groups into a single list
+    result = [point for group in groups for point in group]
+
+    return result
+
+
+
 # Set a threshold for the correlation coefficient (template matching)
 threshold = 0.4
 
@@ -77,15 +109,17 @@ for i in range(1, 605):
         if is_distinct:
             distinct_locations.append(loc1)
 
+    sorted_distinct_locations = group_and_sort(distinct_locations, template_height / 2)
+
     # Print the coordinates of the distinct occurrences
-    for loc in distinct_locations:
+    for loc in sorted_distinct_locations:
         print(f"Aya {aya_id} -> ({loc[0]}, {loc[1]})")
         output_data.append([aya_id, i, loc[0], loc[1]])
         aya_id += 1
 
     if show_preview:
         # Draw a rectangle around the matched region for each occurrence of the template image
-        for loc in distinct_locations:
+        for loc in sorted_distinct_locations:
             x, y = loc
             cv2.rectangle(input_image, (x, y), (x + template_width, y + template_height), (0, 0, 255), 2)
 
