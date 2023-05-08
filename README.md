@@ -5,7 +5,7 @@
 
 ![QuranHub Banner Image](https://www.quranhub.app/image/quranhub_banner.png)
 
-Utility scripts for Quran images.
+**Utility scripts for Quran images.**
 
 ## How to use the scripts?
 
