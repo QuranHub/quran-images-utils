@@ -130,7 +130,7 @@ for i in range(1, 605):
 
 # Check if ther're any missing aya matches
 if aya_id - 1 != total_ayas:
-    print(f"Error: Missing {total_ayas - (aya_id - 1)} aya matches")
+    print(f"Error: Missing {total_ayas - (aya_id - 1)} aya matches (threshold = {threshold})")
 else:
     print("All ayas are matched successfully")
 
